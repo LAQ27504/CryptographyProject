@@ -2,6 +2,7 @@ import base64
 import time
 import hmac
 import hashlib
+import secrets
 from math import floor
 
 VALID_DURATION = 30
@@ -57,8 +58,13 @@ def generate_totp_tokens (
 
   return tokens
 
+def generate_secret_key():
+    random_bytes = secrets.token_bytes(20)
+    return base64.b32encode(random_bytes).decode('utf-8')
+
 if __name__ == "__main__":
-    secret = "CLAH6OEOV52XVYTKHGKBERP42IUZHY4T"
+    secret = generate_secret_key()
+    print(f"Generated secret key: {secret}")
     client_token = input("Enter TOTP code from device: ")
     valid_tokens = generate_totp_tokens(secret)
     print(valid_tokens)
