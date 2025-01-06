@@ -58,13 +58,13 @@ def generate_totp_tokens (
   return tokens
 
 if __name__ == "__main__":
-    secret = "CLAH6OEOV52XVYTKHGKBERP42IUZHY4T"
-    client_token = input("Enter TOTP code from device: ")
+    secret = "JKDSJFLKJSDKFJKJSDKJFKKJHJHFJFJF"
+    #client_token = input("Enter TOTP code from device: ")
     valid_tokens = generate_totp_tokens(secret)
     print(valid_tokens)
 
-    if client_token in valid_tokens:
-        print("Token is valid!")
-    else:
-        print("Invalid token!")
+    # if client_token in valid_tokens:
+    #     print("Token is valid!")
+    # else:
+    #     print("Invalid token!")
 
