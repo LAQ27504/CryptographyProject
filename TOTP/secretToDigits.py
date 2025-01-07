@@ -3,7 +3,7 @@ import time
 import hmac
 import hashlib
 from math import floor
-
+import pyotp
 VALID_DURATION = 30
 TOKEN_LENGTH = 6
 def generate_counter_value():
@@ -46,25 +46,25 @@ def generate_totp_tokens (
     timestep_start = VALID_START,
     timestep_end = VALID_END
 ):
-  tokens: list[str] = []
-  counter_value = generate_counter_value()
+    tokens: list[str] = []
+    counter_value = generate_counter_value()
 
-  for timestep in range(timestep_start, timestep_end + 1):
-    hm = generate_hash(key, counter_value + timestep)
+    hm = generate_hash(key, counter_value + 0)
     code = truncate_dynamically(hm)
     valid_token = truncated_hash_to_token(code)
     tokens.append(valid_token)
 
-  return tokens
+    return tokens
 
 if __name__ == "__main__":
     secret = "CLAH6OEOV52XVYTKHGKBERP42IUZHY4T"
-    client_token = input("Enter TOTP code from device: ")
+    totp = pyotp.TOTP(secret)
+    #client_token = input("Enter TOTP code from device: ")
     valid_tokens = generate_totp_tokens(secret)
     print(valid_tokens)
-
-    if client_token in valid_tokens:
-        print("Token is valid!")
-    else:
-        print("Invalid token!")
+    print(totp.now())
+    # if client_token in valid_tokens:
+    #     print("Token is valid!")
+    # else:
+    #     print("Invalid token!")
 
