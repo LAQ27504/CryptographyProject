@@ -1,8 +1,8 @@
 from TOTP.generateKey import *
 from TOTP.secretToDigits import generate_totp_tokens
 import pyotp
-import os
 import time
+import os 
 
 def clear_terminal():
     # Check the operating system
