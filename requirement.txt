@@ -1,0 +1,4 @@
+pillow==11.1.0
+pyotp==2.9.0
+pyzbar==0.1.9
+qrcode==8.0

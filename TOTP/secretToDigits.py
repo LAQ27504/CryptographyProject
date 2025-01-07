@@ -39,43 +39,32 @@ def truncated_hash_to_token(code: int, digits: int = TOKEN_LENGTH):
         code = code.rjust(digits, "0")
     return code
 
-VALID_START = -2 
-VALID_END = 2 
-
 def generate_totp_tokens (
     key: str,
-    timestep_start = VALID_START,
-    timestep_end = VALID_END
 ):
-    tokens: list[str] = []
     counter_value = generate_counter_value()
 
     hm = generate_hash(key, counter_value + 0)
     code = truncate_dynamically(hm)
     valid_token = truncated_hash_to_token(code)
-    tokens.append(valid_token)
-
-    return tokens
+    return valid_token
 
 def generate_secret_key():
     random_bytes = secrets.token_bytes(20)
     return base64.b32encode(random_bytes).decode('utf-8')
 
-if __name__ == "__main__":
-<<<<<<< HEAD
-    secret = "CLAH6OEOV52XVYTKHGKBERP42IUZHY4T"
-    totp = pyotp.TOTP(secret)
-    #client_token = input("Enter TOTP code from device: ")
-=======
-    secret = generate_secret_key()
-    print(f"Generated secret key: {secret}")
-    client_token = input("Enter TOTP code from device: ")
->>>>>>> a03d819a14c7983c6b0ecf99dac58fe7f5288505
-    valid_tokens = generate_totp_tokens(secret)
-    print(valid_tokens)
-    print(totp.now())
-    # if client_token in valid_tokens:
-    #     print("Token is valid!")
-    # else:
-    #     print("Invalid token!")
+# if __name__ == "__main__":
+#     secret = generate_secret_key()
+#     # secret = "3N6IXFJWA4HTEL7NXHIG3I2H5BTVVXQDHDZJWRJYW4PGTFWVYBDBQIZ4K5Z66GQU"
+    
+#     print(f"Generated secret key: {secret}")
+#     #client_token = input("Enter TOTP code from device: ")
+#     valid_tokens = generate_totp_tokens(secret)
+#     print(valid_tokens)
+#     totp = pyotp.TOTP(secret)
+#     print(totp.now())
+#     # if client_token in valid_tokens:
+#     #     print("Token is valid!")
+#     # else:
+#     #     print("Invalid token!")
 
