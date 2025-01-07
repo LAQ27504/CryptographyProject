@@ -65,7 +65,7 @@ def generate_secret_key():
 if __name__ == "__main__":
     secret = generate_secret_key()
     print(f"Generated secret key: {secret}")
-    client_token = input("Enter TOTP code from device: ")
+    #client_token = input("Enter TOTP code from device: ")
     valid_tokens = generate_totp_tokens(secret)
     print(valid_tokens)
 
