@@ -18,7 +18,7 @@ Then activate it:
 ```
 - Linux/MacOs:
 ```
-source /<your venv name>/bin/activate
+source ./<your venv name>/bin/activate
 ```
 After that, you can install the requires libraries in requirements.txt
 ```

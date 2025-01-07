@@ -19,7 +19,10 @@ def open_terminal(script_name, script_path):
 
     if system == "Windows":
         # Use 'start' to open a new terminal window on Windows
-        process = subprocess.Popen(["start", "python", script_path], shell=True, env=env)
+        process = subprocess.Popen(
+            ["start", "cmd", "/K", f"set PYTHONPATH={project_root} && python {script_path}"], 
+            shell=True, env=env
+        )
     elif system == "Darwin":  # macOS
         # Use 'osascript' to open a new Terminal window on macOS
         process = subprocess.Popen([
