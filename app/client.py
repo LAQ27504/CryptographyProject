@@ -19,6 +19,7 @@ def generate_otp(secret_key):
     print(f"This is out 6 digits token: {valid_token}")
     print("---------")
     py_totp = pyotp.TOTP(secret_key)
+    print(f"Is our token same as pyotp token: {py_totp.verify(valid_token)}")
     print(f"This is pyotp library 6 digits token: {py_totp.now()}")
     print("---------")
 

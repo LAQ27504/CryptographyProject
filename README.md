@@ -22,7 +22,7 @@ source ./<your venv name>/bin/activate
 ```
 After that, you can install the requires libraries in requirements.txt
 ```
-pip install -r ./requirements.txt
+pip install -r ./requirement.txt
 ```
 However, to running pyzbar, we need some other installation. 
 
