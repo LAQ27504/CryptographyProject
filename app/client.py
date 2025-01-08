@@ -19,7 +19,7 @@ def generate_otp(secret_key):
     print(f"This is out 6 digits token: {valid_token}")
     print("---------")
     py_totp = pyotp.TOTP(secret_key)
-    print(f"This is python 6 digits token: {py_totp.now()}")
+    print(f"This is pyotp library 6 digits token: {py_totp.now()}")
     print("---------")
 
 def extract_url_from_qr(image_path):
