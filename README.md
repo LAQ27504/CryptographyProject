@@ -63,3 +63,9 @@ This project help us learn more about how HMAC with SHA-1 is applied in TOTP or 
 
 ## Member:
 **Leader**: [LAQ27504](https://github.com/LAQ27504)
+Member: [Mingminaa](https://github.com/Mingminaa)
+Member: [dominhquang39](https://github.com/dominhquang39)
+Member: [nhphat29](https://github.com/nhphat29)
+Member: [tbn2306](https://github.com/tbn2306)
+Member: [augautx](https://github.com/augautx)
+Member: [vy-v](https://github.com/vy-v)
