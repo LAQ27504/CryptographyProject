@@ -62,10 +62,10 @@ And the otp code will re-generate for each 30 seconds. That is all about how to 
 This project help us learn more about how HMAC with SHA-1 is applied in TOTP or Authenticator app. And hope that you can understand :3333
 
 ## Member:
-**Leader**: [LAQ27504](https://github.com/LAQ27504)
-Member: [Mingminaa](https://github.com/Mingminaa)
-Member: [dominhquang39](https://github.com/dominhquang39)
-Member: [nhphat29](https://github.com/nhphat29)
-Member: [tbn2306](https://github.com/tbn2306)
-Member: [augautx](https://github.com/augautx)
-Member: [vy-v](https://github.com/vy-v)
+**Leader**: [LAQ27504](https://github.com/LAQ27504)  <br/>
+Member: [Mingminaa](https://github.com/Mingminaa)  <br/>
+Member: [dominhquang39](https://github.com/dominhquang39)  <br/>
+Member: [nhphat29](https://github.com/nhphat29)  <br/>
+Member: [tbn2306](https://github.com/tbn2306)  <br/>
+Member: [augautx](https://github.com/augautx)  <br/>
+Member: [vy-v](https://github.com/vy-v)  <br/>
