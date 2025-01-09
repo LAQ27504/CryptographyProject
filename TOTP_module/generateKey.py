@@ -21,8 +21,6 @@ def generate_and_show_qr(data: str):
     qr.add_data(data)
     qr.make(fit=True)
 
-    #print(qr.print_ascii())
-
     # Create the QR code image
     qr_image = qr.make_image(fill_color="black", back_color="white")
     
@@ -31,13 +29,19 @@ def generate_and_show_qr(data: str):
     # Display the QR code
     qr_image.show()
 
-def generate_secret_key(base:int = 32):
-    min_base = 8
-    min_byte = 5
-    num_bytes = ( base // min_base ) * min_byte
+def generate_secret_key(key_length:int = 32):
+    """
+    Generates a secret key based on the number of bytes suitable for length of the key 
+    Args:
+        base (int): The length of key
+    """
+    num_bytes = 8
+    num_bits = 5
+    num_bytes = ( key_length // num_bytes ) * num_bits
     random_bytes = secrets.token_bytes(num_bytes)
     return base64.b32encode(random_bytes).decode('utf-8')
 
+# Generate url base on the information
 def generate_url(secret : str, label : str, issuer : str = None):
     issuer_str = ""
     if issuer:
