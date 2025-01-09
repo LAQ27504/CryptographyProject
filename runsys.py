@@ -52,15 +52,15 @@ operations_dict = {
 while True:
     while not os.path.isdir(venv):
        venv = input("Enter your venv name that you have created: ")
-    operation = input("Enter the operation (open <server/client>): ")
+    operation = input("Enter the operation (open <service/app>): ")
     operation = operation.strip()
     oper_list = operation.split(" ")
-    path = "a"
+    path = ""
 
-    if oper_list[1] == "server":
-        path = "server/server.py"
-    elif oper_list[1] == "client":
-        path = "app/client.py"
+    if oper_list[1] == "service":
+        path = "service/service.py"
+    elif oper_list[1] == "app":
+        path = "app/app.py"
     else:
         print("Invalid file name")
         continue
