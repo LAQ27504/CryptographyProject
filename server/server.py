@@ -1,5 +1,5 @@
-from TOTP.generateKey import *
-from TOTP.secretToDigits import generate_totp_tokens
+from TOTP_module.generateKey import *
+from TOTP_module.secretToDigits import generate_totp_tokens
 import pyotp
 import time
 import os 

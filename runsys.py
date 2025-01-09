@@ -3,7 +3,7 @@ import platform
 import os
 import signal
 import sys
-
+import time
 # Get the current environment variables
 env = os.environ.copy()
 
@@ -13,6 +13,8 @@ env["PYTHONPATH"] = f"{project_root}:{env.get('PYTHONPATH', '')}"
 
 print(project_root)
 processes = {}
+
+venv = "" 
 
 def open_terminal(script_name, script_path):
     # Detect the current operating system
@@ -25,10 +27,11 @@ def open_terminal(script_name, script_path):
             shell=True, env=env
         )
     elif system == "Darwin":  # macOS
+        print("Detect macos")
         # Use 'osascript' to open a new Terminal window on macOS
         process = subprocess.Popen([
             "osascript", "-e",
-            f'tell application "Terminal" to do script "export PYTHONPATH="{project_root}:$PYTHONPATH" && python3 {script_path}"'
+            f'tell application "Terminal" to do script "cd {project_root} && source {venv}/bin/activate && export PYTHONPATH={project_root}:$PYTHONPATH && python3 {script_path}"'
         ],env=env)
     elif system == "Linux":
         # Use 'gnome-terminal' or an alternative terminal emulator for Linux
@@ -40,12 +43,15 @@ def open_terminal(script_name, script_path):
     
     processes[script_name] = process
     print(f"Started script: {script_name} (PID: {process.pid})")
+    time.sleep(2)
     return process
 
 operations_dict = {
     "open" : open_terminal,
 }
 while True:
+    while not os.path.isdir(venv):
+       venv = input("Enter your venv name that you have created: ")
     operation = input("Enter the operation (open <server/client>): ")
     operation = operation.strip()
     oper_list = operation.split(" ")
