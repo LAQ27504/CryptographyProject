@@ -11,6 +11,7 @@ env = os.environ.copy()
 project_root = os.path.abspath(os.path.dirname(__file__))  # Root directory of your project
 env["PYTHONPATH"] = f"{project_root}:{env.get('PYTHONPATH', '')}"
 
+print(project_root)
 processes = {}
 
 def open_terminal(script_name, script_path):
@@ -27,7 +28,7 @@ def open_terminal(script_name, script_path):
         # Use 'osascript' to open a new Terminal window on macOS
         process = subprocess.Popen([
             "osascript", "-e",
-            f'tell application "Terminal" to do script "python3 {script_path}"'
+            f'tell application "Terminal" to do script "export PYTHONPATH="{project_root}:$PYTHONPATH" python3 {script_path}"'
         ],env=env)
     elif system == "Linux":
         # Use 'gnome-terminal' or an alternative terminal emulator for Linux
