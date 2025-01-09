@@ -1,7 +1,7 @@
 from pyzbar.pyzbar import decode
 from PIL import Image
 from urllib.parse import unquote, urlparse, parse_qs
-from TOTP_module.secretToDigits import generate_totp_tokens
+from TOTP.secretToDigits import generate_totp_tokens
 import os
 import time
 import pyotp
